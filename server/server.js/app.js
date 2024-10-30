@@ -27,3 +27,17 @@ http.listen(PORT, () => {
 
      const authRoutes = require('./routes/auth');
      app.use('/auth', authRoutes);
+
+
+     // Hosting a DataBase Connection
+
+     const { pool } = require('pg');
+     const pool = new pool({
+        user: 'postgres',
+        host: 'localhost',
+        database: 'namaste_chat',
+        password: 'postgres',
+        port: 5432,
+     })
+
+     pool.connect().then(() => console.log('Connected to PostgreSQL')).catch(err => console.log(err));
