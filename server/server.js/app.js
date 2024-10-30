@@ -22,3 +22,8 @@ const PORT = process.env.PORT || 5000;
 http.listen(PORT, () => {
      console.log(`Server running on port ${PORT}`);
      });
+
+     // adding user authentication router to this server
+
+     const authRoutes = require('./routes/auth');
+     app.use('/auth', authRoutes);
