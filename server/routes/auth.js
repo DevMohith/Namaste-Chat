@@ -5,6 +5,7 @@ const router = express.Router();
 const users = [];
 
 router.post('/register', (req, res) => {
+    console.log('Register endpoint hit', req.body);
     const { username, password } = req.body;
     // Adding basic user to "database"
   users.push({ username, password });

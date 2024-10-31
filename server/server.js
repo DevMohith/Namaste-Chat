@@ -28,15 +28,22 @@ http.listen(PORT, () => {
      const authRoutes = require('./routes/auth');
      app.use('/auth', authRoutes);
 
+     app.use(express.json()); // This is necessary for parsing JSON requests
+app.use('/auth', authRoutes); // Adjust path if needed
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
+
 
      // Hosting a DataBase Connection
 
-     const { pool } = require('pg');
-     const pool = new pool({
+     const { Pool } = require('pg');
+     const pool = new Pool({
         user: 'postgres',
         host: 'localhost',
         database: 'namaste_chat',
-        password: 'postgres',
+        password: 'mohith',
         port: 5432,
      })
 
